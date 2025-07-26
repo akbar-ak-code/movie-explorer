@@ -188,7 +188,9 @@ body {
   .container {
     flex-direction: column;
   }
-
+  .poster{
+    width: 95vw !important;
+  }
   .poster img {
     height: 70vh;
     width: 100%;
