@@ -43,7 +43,7 @@ export default function Navbar() {
         }}
       >
         <div className="container-fluid">
-          <Link className="navbar-brand glowing-heading" style={{fontSize:"27px" }} to="/">
+          <Link className="navbar-brand glowing-heading" style={{fontSize:"27px" }} to={import.meta.env.BASE_URL}>
               Movies-Explorer
           </Link>
           <button
