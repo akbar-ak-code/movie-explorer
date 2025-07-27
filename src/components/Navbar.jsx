@@ -43,7 +43,7 @@ export default function Navbar() {
         }}
       >
         <div className="container-fluid">
-          <a className="navbar-brand glowing-heading" style={{fontSize:"27px" }} href="/movie-explorer/">
+          <a className="navbar-brand glowing-heading" style={{fontSize:"27px" }} href="/">
               Movies-Explorer
           </a>
           <button
