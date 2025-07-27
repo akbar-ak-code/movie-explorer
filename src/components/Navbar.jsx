@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function Navbar() {
@@ -43,9 +43,9 @@ export default function Navbar() {
         }}
       >
         <div className="container-fluid">
-          <Link className="navbar-brand glowing-heading" style={{fontSize:"27px" }} to={import.meta.env.BASE_URL}>
+          <a className="navbar-brand glowing-heading" style={{fontSize:"27px" }} href="/movie-explorer/">
               Movies-Explorer
-          </Link>
+          </a>
           <button
             className="navbar-toggler"
             type="button"
