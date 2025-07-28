@@ -8,6 +8,10 @@ export default function Navbar() {
   const [query,setQuery] =useState('')
   const navigate = useNavigate(); 
 
+  const handlelogo=()=>{
+    navigate('/')
+  }
+
   const handlesearch =(e)=>{
     e.preventDefault()
     if(query.trim()){ //query!=NULL after removing spaces
@@ -43,9 +47,9 @@ export default function Navbar() {
         }}
       >
         <div className="container-fluid">
-          <a className="navbar-brand glowing-heading" style={{fontSize:"27px" }} href="/">
+          <span className="navbar-brand glowing-heading" onClick={handlelogo} style={{fontSize:"27px" }} >
               Movies-Explorer
-          </a>
+          </span>
           <button
             className="navbar-toggler"
             type="button"
