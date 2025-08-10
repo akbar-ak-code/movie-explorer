@@ -6,7 +6,7 @@ import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/movie-explorer/">
+    <BrowserRouter basename="/movie-explorer">
       <App />
     </BrowserRouter>
   </StrictMode>
