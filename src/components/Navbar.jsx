@@ -9,7 +9,7 @@ export default function Navbar() {
   const navigate = useNavigate(); 
 
   const handlelogo=()=>{
-    navigate('/movie-explorer/')
+    navigate('/')
   }
 
   const handlesearch =(e)=>{
