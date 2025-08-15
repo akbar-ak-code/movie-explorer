@@ -45,7 +45,7 @@ export default function Movies(props) {
   
     {query&&movies.length===0&&loading===false?(
     <div className="empty-item">
-      <div> <img src="../duck.gif" alt="" style={{height:"82vh",width:"60vw"}}/></div>
+      <div> <img src="./duck.gif" alt="" style={{height:"82vh",width:"60vw"}}/></div>
       <div className='text'> No Movies Named {query}</div>
     </div>)
     :query&&(
