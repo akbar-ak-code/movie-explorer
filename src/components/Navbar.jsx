@@ -47,7 +47,7 @@ export default function Navbar() {
         }}
       >
         <div className="container-fluid">
-          <span className="navbar-brand glowing-heading" onClick={handlelogo} style={{fontSize:"27px" }} >
+          <span className="navbar-brand glowing-heading" onClick={handlelogo} style={{fontSize:"27px",cursor:"pointer"}} >
               Movies-Explorer
           </span>
           <button

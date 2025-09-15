@@ -6,7 +6,7 @@ const navigate=useNavigate()
     navigate("/movies/movie",{state:{movie:props}})
   }
   return (
-    <div className="flip-card" onClick={handleclick}>
+    <div className="flip-card" onClick={handleclick} style={{cursor:"pointer"}}>
         <div className="flip-card-inner">
             {/* front side */}
             <div className="flip-card-front card text-center" style={{ maxWidth: '18rem' ,backgroundColor:"black", borderTop: "2px solid orange",
