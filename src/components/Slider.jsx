@@ -6,6 +6,7 @@ import { Navigation } from 'swiper/modules';
 import Movieitem from './Movieitem';
 import { Autoplay } from 'swiper/modules';
 import MovieBackground from './MovieBackground';
+import './MovieStyles.css';
 export default function Slider({ title = "Trending Movies" }) {
   const apiKey = import.meta.env.VITE_API;
     const [movies,setMovies]=useState([])
@@ -32,8 +33,8 @@ export default function Slider({ title = "Trending Movies" }) {
     
   return (
     <div>
-      <div className="container my-3">
-        <h2 className='mb-4' style={{fontWeight: 'bold', color: '#ff9900',fontSize:"25px"}}>{title}</h2>
+      <div className="container my-4">
+        <h2 className='mb-4 section-title'>{title}</h2>
         <Swiper
             modules={[Navigation,Autoplay]}
             spaceBetween={20}

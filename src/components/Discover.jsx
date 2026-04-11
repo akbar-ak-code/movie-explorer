@@ -5,6 +5,7 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import Movieitem from './Movieitem';
 import { Autoplay } from 'swiper/modules';
+import './MovieStyles.css';
 
 
 export default function Discover({ title = "Discover" }) {
@@ -55,11 +56,11 @@ export default function Discover({ title = "Discover" }) {
     
   return (
   <div>
-    <h1 className='mb-4 container' style={{ fontWeight: 'bold', color: '#ff9900' }}>{title}</h1>
-    <div className="container  my-3">
+    <h1 className='mb-4 container section-title'>{title}</h1>
+    <div className="container my-3">
       {GENRES.map((genre) => (
         <React.Fragment key={genre.name}>
-          <h2 className='mb-4 container' style={{ fontWeight: 'bold', color: '#ff9900', fontSize: "25px",marginTop:"3vh" }}>{genre.name}</h2>
+          <h3 className='mb-4 container genre-title'>{genre.name}</h3>
           <Swiper
             modules={[Navigation, Autoplay]}
             spaceBetween={20}

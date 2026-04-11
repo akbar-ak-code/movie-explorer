@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import './MovieStyles.css'; // Import new stylesheet
 
 
 export default function Navbar() {
@@ -40,18 +41,14 @@ export default function Navbar() {
  return (
     <div>
       <nav
-        className="navbar navbar-expand-lg"
-        style={{
-          background: 'linear-gradient(to right,black,rgb(30, 28, 28))',
-          color: 'white',
-        }}
+        className="navbar navbar-expand-lg navbar-dark movie-navbar"
       >
         <div className="container-fluid">
-          <span className="navbar-brand glowing-heading" onClick={handlelogo} style={{fontSize:"27px",cursor:"pointer"}} >
+          <span className="navbar-brand glowing-heading" onClick={handlelogo} style={{fontSize:"27px",cursor:"pointer", color: '#ff9900'}} >
               Movies-Explorer
           </span>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler" // Keep this for bootstrap functionality
             type="button"
             data-bs-toggle="collapse"
             style={{ border: '3px solid orange' }}
@@ -59,7 +56,7 @@ export default function Navbar() {
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
-          >
+          > 
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -72,27 +69,20 @@ export default function Navbar() {
             </ul>
             <form className="d-flex position-relative" role="search" onSubmit={handlesearch}>
               <input
-                className="form-control me-2"
+                className="form-control me-2 search-input"
                 type="search"
                 placeholder="Search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 aria-label="Search"
               />
-              <button className="btn btn-outline-warning" type="submit">
+              <button className="btn btn-warning search-button" type="submit">
                 Search
               </button>
 
               {suggestion.length > 0 && (
                 <ul
-                  className="list-group position-absolute z-3 mt-5"
-                  style={{
-                    top: '10%',
-                    left: 0,
-                    width: '100%',
-                    maxHeight: 'fit-content',
-                    overflowY: 'hidden',
-                  }}
+                  className="suggestion-list"
                 >
                   {suggestion.map((movie) => (
                     <li
@@ -103,7 +93,6 @@ export default function Navbar() {
                         setSuggestion([]);
                         setQuery('');
                       }}
-                      style={{ cursor: 'pointer' }}
                     >
                       {movie.title}
                     </li>

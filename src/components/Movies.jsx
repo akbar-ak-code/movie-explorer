@@ -2,6 +2,7 @@ import React, { useEffect,useRef, useState } from 'react'
 import Movieitem from './Movieitem'
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Navigate,useLocation } from 'react-router-dom';
+import './MovieStyles.css';
 import Slider from './Slider';
 
 export default function Movies(props) {
@@ -39,21 +40,22 @@ export default function Movies(props) {
 
   // if(redirecting) return null
   
+  const validMovies = movies.filter(movie => movie.vote_average !== 0 && movie.overview !== "");
+
   return (
     <>
      <div className='container my-4'>
   
-    {query&&movies.length===0&&loading===false?(
+    {query&&validMovies.length===0&&loading===false?(
     <div className="empty-item">
-      <div> <img src="./duck.gif" alt="" style={{height:"82vh",width:"60vw"}}/></div>
-      <div className='text'> No Movies Named {query}</div>
+      <img src="./duck.gif" alt="No movies found" className="empty-item-gif"/>
+      <div className='empty-item-text'> No Movies Found for "{query}"</div>
     </div>)
     :query&&(
-  <div className="row d-flex justify-content-around ">
-       {movies.map((movie)=>(
-        (movie.vote_average===0||movie.overview==="")?null:
-        <div className='col-md-3 mb-4 mx-3 my' key={movie.id}>
-            <Movieitem  key={movie.id} rating={movie.vote_average} release={movie.release_date} poster={movie.poster_path} title={movie.original_title} overview={movie.overview} />
+  <div className="row g-4 justify-content-center">
+       {validMovies.map((movie)=>(
+        <div className='col-12 col-sm-6 col-md-4 col-lg-3' key={movie.id}>
+            <Movieitem rating={movie.vote_average} release={movie.release_date} poster={movie.poster_path} title={movie.original_title} overview={movie.overview} />
        </div>
        ))}
     </div>

@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Movies from './Movies'
-import Slider from './Slider'
 import { useSearchParams } from 'react-router-dom'
-import Discover from './Discover';
+
+const Slider = React.lazy(() => import('./Slider'));
+const Discover = React.lazy(() => import('./Discover'));
+
+const LoadingSpinner = () => <div className="d-flex justify-content-center my-5"><div className="spinner-border text-warning" role="status"><span className="visually-hidden">Loading...</span></div></div>;
 
 export default function Home({setProgress={setProgress}}) {
     const [searchParams] = useSearchParams();
     const query = searchParams.get('q');
 
   return (
-    <>
-      {!query && <Slider title="🔥 Trending Movies"/>}
-      {!query && <Discover title="Discover"/>}
+    <Suspense fallback={<LoadingSpinner />}>
+      {!query && <Slider title="🔥 Trending Movies" />}
+      {!query && <Discover title="Discover" />}
       <Movies setProgress={setProgress}/>
-    </>
+    </Suspense>
   )
 }
